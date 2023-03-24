@@ -22,23 +22,23 @@ def get_hint():
 
 
 def pc_guess():
-    goal = get_number()
     min_value = 0
     max_value = 1000
-    tries = 0
+    get_number()
+    guessed = randint(0, 1000)
+    print(f'I chose: {guessed}')
     hint = get_hint()
-    while hint != 'you won' or tries == 10:
+    while hint != 'you won':
         guessed = (max_value - min_value) / 2 + min_value
-        print(f'I chose: {guessed}')
+        print(f'I chose: {round(guessed)}')
         hint = get_hint()
         if hint == 'too big':
             max_value = guessed
-            tries += 10
         elif hint == 'too small':
             min_value = guessed
-            tries += 10
 
     print("Ha! I won!")
+
 
 print("Choose a number between 0 and 1000 and I'll try to guess it. I have only 10 tries.\n")
 
